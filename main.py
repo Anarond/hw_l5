@@ -19,7 +19,11 @@ def test_form():
     browser.element('label[for="gender-radio-1"]').click()
     browser.element('#gender-radio-1').should(have.attribute('checked'))
 
-    #browser.element('#dateOfBirthInput').click()
+    browser.element('#dateOfBirthInput').click()
+    browser.element('.react-datepicker__year-select').click().type('1999').press_enter()
+    browser.element('.react-datepicker__month-select').click().type('april').press_enter()
+    browser.element('.react - datepicker__dayreact - datepicker__day - -01
+    8').click().
 
     browser.element('#subjectsInput').click().type('ma').press_enter()
     browser.element('#subjectsContainer').should(have.text('Maths'))
