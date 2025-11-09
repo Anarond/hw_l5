@@ -23,13 +23,17 @@ def test_form():
     browser.element('.react-datepicker__year-select').click().type('1999').press_enter()
     browser.element('.react-datepicker__month-select').click().type('april').press_enter()
     browser.element('.react-datepicker__day--013').click()
+    browser.element('#dateOfBirthInput').should(have.value('13 Apr 1999'))
 
     browser.element('#subjectsInput').click().type('ma').press_enter()
     browser.element('#subjectsContainer').should(have.text('Maths'))
 
-    #browser.element('#hobbies-checkbox-1').click()
-    #browser.element('#hobbies-checkbox-2').click()
-    #browser.element('#hobbies-checkbox-3').click()
+    browser.element('label[for="hobbies-checkbox-1"]').click()
+    browser.element('#hobbies-checkbox-1').should(have.attribute('checked'))
+    browser.element('label[for="hobbies-checkbox-2"]').click()
+    browser.element('#hobbies-checkbox-2').should(have.attribute('checked'))
+    browser.element('label[for="hobbies-checkbox-3"]').click()
+    browser.element('#hobbies-checkbox-3').should(have.attribute('checked'))
 
     #html = browser.driver.page_source
     #file_path = r'D:\page_source2.txt'
