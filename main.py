@@ -22,8 +22,7 @@ def test_form():
     browser.element('#dateOfBirthInput').click()
     browser.element('.react-datepicker__year-select').click().type('1999').press_enter()
     browser.element('.react-datepicker__month-select').click().type('april').press_enter()
-    browser.element('.react - datepicker__dayreact - datepicker__day - -01
-    8').click().
+    browser.element('.react-datepicker__day--013').click()
 
     browser.element('#subjectsInput').click().type('ma').press_enter()
     browser.element('#subjectsContainer').should(have.text('Maths'))
@@ -37,4 +36,4 @@ def test_form():
     #with open(file_path, 'w', encoding='utf-8') as file:
     #   file.write(html)
 
-    time.sleep(11)
+    time.sleep(3)
