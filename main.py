@@ -40,6 +40,10 @@ def test_form():
     browser.element('#currentAddress').type('3-я улица Строителей, дом 25, квартира 12')
     browser.element('#currentAddress').should(have.value('3-я улица Строителей, дом 25, квартира 12'))
 
+    browser.element('#state').click()
+    browser.element('#react-select-3-input').type('Raj').press_enter()
+    #browser.element('#state').should(have.value('Rajasthan'))
+
     #html = browser.driver.page_source
     #file_path = r'D:\page_source2.txt'
     #with open(file_path, 'w', encoding='utf-8') as file:
