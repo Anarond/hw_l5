@@ -1,4 +1,5 @@
 from selene import browser, have
+import os
 
 
 def test_form(browser_set):
@@ -37,7 +38,9 @@ def test_form(browser_set):
     browser.element('label[for="hobbies-checkbox-3"]').click()
     browser.element("#hobbies-checkbox-3").should(have.attribute("checked"))
 
-    browser.element("#uploadPicture").click().send_keys()
+    browser.element("#uploadPicture").send_keys(
+        os.path.abspath(os.path.join(os.path.dirname(__file__), "files", "png.png"))
+    )
 
     browser.element("#currentAddress").type("3-я улица Строителей, дом 25, квартира 12")
     browser.element("#currentAddress").should(
