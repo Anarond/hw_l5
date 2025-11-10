@@ -1,7 +1,7 @@
 from selene import browser, have
 import time
 
-def test_form():
+def test_form(browser_set):
     browser.open("https://demoqa.com/automation-practice-form")
 
     browser.element('#firstName').type('JOE')

@@ -1,15 +1,12 @@
 import pytest
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.chrome.options import Options
+from selene import browser
 
 
 @pytest.fixture
-def browser():
-    chrome_options = Options()
-    chrome_options.add_argument("--incognito")
-    chrome_options.add_argument("--window-size=1920,1080")
+def browser_set():
+    browser.config.window_width = 1920
+    browser.config.window_height = 1080
 
-    driver = webdriver.Chrome(options=chrome_options)
-    yield driver
-    driver.quit()
+    yield
+
+    browser.quit()
