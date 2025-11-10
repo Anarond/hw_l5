@@ -3,7 +3,7 @@ import os
 
 
 def test_form(browser_set):
-    browser.open("https://demoqa.com/automation-practice-form")
+    browser.open("/automation-practice-form")
 
     browser.element("#firstName").type("JOE")
     browser.element("#firstName").should(have.value("JOE"))
@@ -54,3 +54,39 @@ def test_form(browser_set):
     browser.element("#city").click()
     browser.element("#react-select-4-input").type("Jaise").press_enter()
     # browser.element('#state').should(have.value('Jaiselmer'))
+
+    browser.element("#submit").click()
+    browser.element("#example-modal-sizes-title-lg").should(
+        have.text("Thanks for submitting the form")
+    )
+
+    browser.element('//tbody//td[text()="Student Name"]/following-sibling::td').should(
+        have.text("JOE PEACH")
+    )
+    browser.element('//tbody//td[text()="Student Email"]/following-sibling::td').should(
+        have.text("joe@peach.com")
+    )
+    browser.element('//tbody//td[text()="Gender"]/following-sibling::td').should(
+        have.text("Male")
+    )
+    browser.element('//tbody//td[text()="Mobile"]/following-sibling::td').should(
+        have.text("5550199045")
+    )
+    browser.element('//tbody//td[text()="Date of Birth"]/following-sibling::td').should(
+        have.text("13 April,1999")
+    )
+    browser.element('//tbody//td[text()="Subjects"]/following-sibling::td').should(
+        have.text("Maths")
+    )
+    browser.element('//tbody//td[text()="Hobbies"]/following-sibling::td').should(
+        have.text("Sports, Reading, Music")
+    )
+    browser.element('//tbody//td[text()="Picture"]/following-sibling::td').should(
+        have.text("png.png")
+    )
+    browser.element('//tbody//td[text()="Address"]/following-sibling::td').should(
+        have.text("3-я улица Строителей, дом 25, квартира 12")
+    )
+    browser.element(
+        '//tbody//td[text()="State and City"]/following-sibling::td'
+    ).should(have.text("Rajasthan Jaiselmer"))
